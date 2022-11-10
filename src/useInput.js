@@ -24,7 +24,8 @@ const useInput = (initialValue, validator /*유효성을 확인하는 명령어 
 
 const App = () => {
   const maxLen = (value) => value.length <= 10; // value의 길이를 체크
-  const name = useInput("Mr.kim", maxLen);
+  const noAt = (value) => !value.includes("@"); // @가 들어가면 쓰지못하게
+  const name = useInput("Mr.kim", noAt);
   return (
     <div className="App">
       <h1>Hello</h1>
