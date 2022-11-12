@@ -3,32 +3,30 @@ import ReactDOM from "react-dom";
 
 import "./style.css";
 
-const useClick = (onClick) => {
-  const element = useRef();
-  useEffect(() => {
-    if (typeof onClick !== "function") {
-      return;
+export const useConfirm = (message = "", onConfirm, onCancel) => {
+  if(!onConfirm || typeof onConfirm !== "function") {
+     return;
+  }
+  if(onCancel && typeof onCancel !== "function") {
+    return; 
+  }
+  const confirmAction = () => {
+    if(confirm(message)) {
+      onConfirm();  
+    } else {
+      onCancel();
     }
-    if (element.current) {
-      element.current.addEventListener("click", onClick);
-    }
-    return () => {
-      if (element.current) {
-        element.current.removeEventListener("click", onClick);
-      }
-    };
-  }, []);
-  return element;
-};
-// element를 return하여 App() 안에 넣어주고 useCLick안에 eventListener를 생성해 줬다.
+  }
+  return confirmAction;
+}
+
 const App = () => {
-  // const cake = useRef(); // 요소를 선택할수있게하는 방법
-  // setTimeout(() => cake.current.focus(), 3000);
-  const sayHello = () => console.log("반갑습니다");
-  const title = useClick(sayHello);
+  const deleteWorld = () => console.log("Deleteing World");
+  const abort = () => console.log("Aborted");
+  const confirmDelete = useConfirm("Are you sure", deleteWorld, abort);
   return (
     <div className="App">
-      <h1 ref={title}>안녕하세요</h1>
+      <button>Delete the world</button>
     </div>
   );
 };
