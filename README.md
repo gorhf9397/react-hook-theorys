@@ -10,8 +10,8 @@
     <p>- [o] useConfirm</p>
     <p>- [o] usePreventLeave</p>
     <p>- [o] useBeforeLeave</p>
-    <p>- [] useFadeIn</p>
-    <p>- [] useNetwork</p>
+    <p>- [o] useFadeIn</p>
+    <p>- [o] useNetwork</p>
     <p>- [] useNotification</p>
     <p>- [] useScroll</p>
     <p>- [] useAxios</p>
