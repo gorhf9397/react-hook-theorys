@@ -8,8 +8,8 @@ const usePreventLeave = () => {
     event.preventDefault();
     event.returnValue = "";
   };
-  const enablePrevent = () => window.addEventListener("beforeunload", listener);
-  const disablePrevent = () =>
+  const enablePrevent = () => window.addEventListener("beforeunload", listener);    // 사이트 로드 add이벤트
+  const disablePrevent = () =>  // 사이트 로드 remove이벤트
     window.removeEventListener("beforeunload", listener);
   return { enablePrevent, disablePrevent };
 };
