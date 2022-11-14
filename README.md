@@ -12,7 +12,7 @@
     <p>- [o] useBeforeLeave</p>
     <p>- [o] useFadeIn</p>
     <p>- [o] useNetwork</p>
+    <p>- [o] useScroll</p>
     <p>- [] useNotification</p>
-    <p>- [] useScroll</p>
     <p>- [] useAxios</p>
 </h2>
