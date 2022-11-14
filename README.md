@@ -13,6 +13,7 @@
     <p>- [o] useFadeIn</p>
     <p>- [o] useNetwork</p>
     <p>- [o] useScroll</p>
-    <p>- [] useNotification</p>
+    <p>- [o] useFullScreen</p>
+    <p>- [o] useNotification</p>
     <p>- [] useAxios</p>
 </h2>
