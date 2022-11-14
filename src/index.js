@@ -3,29 +3,31 @@ import ReactDOM from "react-dom";
 
 import "./style.css";
 
-const useScroll = () => {
-  const [state, setState] = useState({
-    x: 0,
-    y: 0,
-  });
-  const onScroll = () => {
-    // console.log("y좌표", window.scrollY, "x좌표", window.scrollX);
-    setState({ y: window.scrollY, x: window.scrollX });
+const useFullscreen = () => {
+  const element = useRef();
+  const triggerFull = () => {
+    if (element.current) {
+      element.current.requestFullscreen();
+    }
   };
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return state;
+  const exitFull = () => {
+    document.exitFullscreen();
+  };
+  return { element, triggerFull, exitFull };
 };
 
 const App = () => {
-  const { y } = useScroll();
+  const { element, triggerFull, exitFull } = useFullscreen();
   return (
-    <div className="App" style={{ height: "1000vh" }}>
-      <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
-        안녕하세요
-      </h1>
+    <div className="App">
+      <div ref={element}>
+        <img
+          alt="imgee"
+          src="http://image.cine21.com/resize/cine21/still/2018/1121/19_06_16__5bf52e186f884[W578-].jpg"
+        />
+        <button onClick={triggerFull}>전체화면</button>
+        <button onClick={exitFull}>전체화면종료</button>
+      </div>
     </div>
   );
 };
