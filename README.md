@@ -15,5 +15,5 @@
     <p>- [o] useScroll</p>
     <p>- [o] useFullScreen</p>
     <p>- [o] useNotification</p>
-    <p>- [] useAxios</p>
+    <p>- [o] useAxios</p>
 </h2>
